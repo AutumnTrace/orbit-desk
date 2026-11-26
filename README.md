@@ -17,7 +17,7 @@ A telemetry console for SIMSAT-1, a fictional spacecraft. **All of its telemetry
 
 Packets are binary, with the [layout below](#the-packet). The same decoder reads three recorded missions in the browser, which is the GitHub Pages demo, and a live WebSocket stream from a small Node simulator. Decoding and data reduction run in a Web Worker; the main thread only draws.
 
-**Open the incident:** <https://autumntrace.github.io/orbit-desk/?mission=battery-sag&t=04:18.500&span=60&ch=bat_v,bat_i,sa_i,bus_v&src=1>. That link works once the Pages workflow has deployed. Locally:
+**Open the incident:** <https://autumntrace.github.io/orbit-desk/?mission=battery-sag&t=04:18.500&span=60&ch=bat_v,bat_i,sa_i,bus_v&src=1>. It opens the GitHub Pages build of `main`. Locally:
 
 ```sh
 git clone https://github.com/AutumnTrace/orbit-desk && cd orbit-desk
