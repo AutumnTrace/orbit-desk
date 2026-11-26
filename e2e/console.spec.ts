@@ -141,10 +141,14 @@ test('live mode streams from the simulator into a fixed-size buffer', async ({ p
   await expect(page.getByTestId('alarm').first()).toBeVisible({ timeout: 15_000 });
 });
 
-test('no serious accessibility violations', async ({ page }) => {
-  await page.goto(INCIDENT);
-  await settled(page);
-  const results = await new AxeBuilder({ page }).analyze();
-  const serious = results.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
-  expect(serious.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).slice(0, 3).join(' | ')}`)).toEqual([]);
-});
+// At two window sizes: on a short screen the side panes scroll, and must be reachable by keyboard.
+for (const viewport of [{ width: 1600, height: 1000 }, { width: 1280, height: 720 }]) {
+  test(`no serious accessibility violations at ${viewport.width}×${viewport.height}`, async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto(INCIDENT);
+    await settled(page);
+    const results = await new AxeBuilder({ page }).analyze();
+    const serious = results.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
+    expect(serious.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).slice(0, 3).join(' | ')}`)).toEqual([]);
+  });
+}

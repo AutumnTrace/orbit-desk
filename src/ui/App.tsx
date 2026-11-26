@@ -329,7 +329,10 @@ export function App() {
         )}
       </main>
 
-      <aside className="right">{result && <Inspector result={result} />}</aside>
+      {/* Focusable, so the pane can be scrolled from the keyboard when it overflows. */}
+      <aside className="right" tabIndex={0} aria-label="Packet inspector">
+        {result && <Inspector result={result} />}
+      </aside>
     </div>
   );
 }

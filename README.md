@@ -116,7 +116,7 @@ Each mission also has:
 | Delayed packets into a full live ring, across the wrap point | Kept in mission-time order; memory fixed; oldest evicted | [`puts a delayed sample in its place, across the wrap point`](tests/signal.test.ts#L87) |
 | Live mode against the simulator | Streams, follows the clock, shows the fixed buffer, raises alarms | [`live mode streams…`](e2e/console.spec.ts#L134) |
 | The committed recordings | Regenerating them from their seeds gives the same bytes | [`are the seeded ones`](tests/missions.test.ts#L23) |
-| Keyboard and screen readers | The sample table works from the keyboard; axe finds no serious violations | [`the sample table works from the keyboard`](e2e/console.spec.ts#L120), [`no serious accessibility violations`](e2e/console.spec.ts#L144) |
+| Keyboard and screen readers | The sample table works from the keyboard; axe finds no serious violations at 1600×1000 and 1280×720 | [`the sample table works from the keyboard`](e2e/console.spec.ts#L120), [`no serious accessibility violations`](e2e/console.spec.ts#L144) |
 
 Two mutation checks back these up:
 
@@ -157,7 +157,7 @@ That is 60 frames per second at every window. Before the table cap, the 600 s ro
 The test suites, on the same machine:
 
 - 33 unit tests (Vitest) in 0.2 s;
-- 9 browser tests (Playwright, Chromium) in about 15 s, also run 8 times in a row without a failure.
+- 10 browser tests (Playwright, Chromium) in about 17 s. The 9 before the second axe check were also run 8 times in a row without a failure.
 
 ## Running it
 

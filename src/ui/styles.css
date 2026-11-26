@@ -94,6 +94,7 @@ button[aria-pressed='true'] { background: #30363d; border-color: var(--accent); 
 .late { color: var(--warn); }
 .samples { margin-bottom: 10px; }
 .samples th { color: var(--muted); font-weight: 600; }
+.samples td:first-child { white-space: normal; }
 .hex { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px 4px; font: 12px ui-monospace, Consolas, monospace; color: var(--muted); }
 .hex span { padding: 1px 2px; border-radius: 3px; text-align: center; }
 .hex span.hit { background: #1f6feb; color: #fff; }
