@@ -1,0 +1,42 @@
+{
+  "name": "orbit-desk",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "missions": "node src/sim/record.ts",
+    "sim": "node src/sim/server.ts",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "bench:decode": "node bench/decode.ts",
+    "bench:chart": "node bench/chart.ts",
+    "record": "node scripts/record-demo.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.1",
+    "@playwright/test": "1.65.1",
+    "@types/node": "24.19.4",
+    "@types/react": "19.3.3",
+    "@types/react-dom": "19.3.0",
+    "@types/ws": "8.18.2",
+    "@vitejs/plugin-react": "6.3.0",
+    "jsdom": "31.0.1",
+    "sharp": "0.35.5",
+    "typescript": "6.0.3",
+    "vite": "8.3.8",
+    "vitest": "5.1.2",
+    "ws": "8.23.0"
+  }
+}
